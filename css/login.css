@@ -1,0 +1,68 @@
+h2{
+    text-align: center;
+    color:#707070;
+}
+.fixed-input-box {
+  width: 300px;
+  font-family: sans-serif;
+  font-size: 15px;
+  padding: 5px;
+  border: 1px solid black;
+}
+#login-wrapper table
+{
+/*    width = 400px;*/
+}
+
+fieldset 
+{
+    border-style:solid;
+    border-color: #dddddd;
+    border-width:5px;
+    width:400px;
+    margin: auto;
+    color: white;
+}
+
+legend
+{ 
+  color: #999999;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.0em;
+}
+
+#Account 
+{
+  text-align: center;
+  color: #999999;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.0em;  
+}
+#login-buttons{
+    width: 200px;
+    margin: auto;
+}
+#login-buttons table
+{
+    width: 200px;
+}
+    
+#login-buttons .left_button
+{
+    text-align: left;
+}
+#login-buttons .right_button
+{   
+    text-align: right;
+}
+#login-buttons .middle_button
+{
+    text-align: center;
+}
+
+label
+{
+    text-align: left;
+}

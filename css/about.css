@@ -1,0 +1,28 @@
+#title {
+    text-align: center;
+}
+
+#aboutContent {
+   margin-left: 190px;
+   padding: 1px 20px 20px 30px;
+    color: white;
+/*    text-align: center;*/
+}
+
+#aboutContent ul {
+    list-style-image: url(marker.gif); 
+    list-style-position: inside;
+}
+
+#aboutContent img { 
+    float: left;
+    padding-right: 20px; 
+}
+
+#contact { 
+    font-size: 90%; 
+}
+
+p {
+    margin-right: 500px;
+}

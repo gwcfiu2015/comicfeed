@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ComicFeed Login</title>
+<meta charset="utf-8">
+    <link href = "login.css" rel = stylesheet style = "text/css"/>
+    <link href = "comicFeed.css" rel = stylesheet style = "text/css"/>
+    <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+<!--    <script type = "text/javascript" src = "login.js"></script>-->
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="underscore.js"></script>
+   <script src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      <script type="text/javascript">
+  Parse.initialize("EvP4vBht24y1wyBUzneXWZmCPOu8vGyN1IyRs2i8", "QWhIRTARyvkr3wxlgSAA2sdSM9THTQ8mXq11SEzf");
+    
+        alert("Loaded script");
+    
+//    var TestObject = Parse.Object.extend("TestObject");
+//    var testObject = new TestObject();
+//      testObject.save({foo: "bar"}, {
+//      success: function(object) {
+//        $(".success").show();
+//      },
+//      error: function(model, error) {
+//        $(".error").show();
+//      }
+//    });
+          
+          function test()
+          {
+            alert("Test function");   
+          }
+
+function userSignup() {
+    alert("clicked button");
+    //creates new Parse user to be saved to database 
+    var user = new Parse.User();
+    
+    //grabs the information from our form 
+    var username = $("#login").val();
+    var password = $("#password").val();
+    //var favoriteColor = $("#fc").val(); 
+    
+    user.set("username", username.toString());
+    user.set("password", password.toString());
+    //user.set("favoriteColor", favoriteColor.toString()); 
+    //can add extra information to user
+    user.set("website", "with-animations/index.html");
+    //user.set("email", "email@example.com");
+    
+    //call signup function to add user to database 
+    user.signUp(null, {
+
+      success: function(user) {
+        // Hooray! Let them use the app now.
+          alert("signing user up"); 
+          //user.login(); //sets Parse.User.currentUser() to be the user variable 
+
+      },
+      error: function(user, error) {
+        // Show the error message somewhere and let the user try again.
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });//close user.signup 
+} //closes userSignup function 
+function logIn(){
+    alert ("clicked login button");
+    var username = $("#login").val();
+    var password = $("#password").val();
+    //var favoriteColor = $("#fc").val(); 
+    Parse.User.logIn(username.toString(),  password.toString(), {
+  success: function(user) {
+    // Do stuff after successful login.
+      alert("logged in");
+      changePage();
+  },
+
+  error: function(user, error) {
+    // The login failed. Check error to see why.
+  }
+
+        }); //closes the login function
+
+}
+ $("#color").click(function (){
+     alert("clicked show color");
+     alert(Parse.User.current().get("favoriteColor"));
+ });
+function changePage()
+{
+    //refers to the file that is loaded in the current window.
+    window.location ="file://buffalo.cs.fiu.edu/homes/Documents/PROJECT!!!!/moviesAbout.html";
+}
+
+
+
+  </script>
+    
+    
+</head>
+<body>
+<div id = "menu"; style = "text-align: center">
+<header><h1>ComicFeed</h1><</header>
+<nav>
+ <ul>
+     <li><a href="comicFeed.html">HOME PAGE</a></li>
+     <li><a href="movies.html">MOVIES</a></li>
+     <li><a href="tv%20shows.html">TV SHOWS</a></li>
+     <li><a href="comics.html">COMICS</a></li>
+     <li><a href="about.html">ABOUT</a></li>
+     <li><a href="signin.html">SIGN IN</a></li>
+ </ul>
+</nav>
+</div>
+<h2>ComicFeed Login</h2>
+<div id = "login-wrapper">
+<fieldset>
+    <legend>Login Form</legend>
+<form name = "loginForm" action = "#" method = "post">
+    <table>
+        <tr>
+            <td><label for = "login">Login:</label><br></td>
+            <td ><input type = "text" name = "login" id = "login" class = "fixed-input-box" ><br></td>
+        </tr>
+        <tr>
+            <td><label for = "password">Password:</label><br></td>
+            <td><input type = "password" name = "password" id = "password" class= "fixed-input-box"><br></td>
+        </tr>
+    </table>
+    <div id = "loginButtons">
+        <table>
+            <tr>
+                <td class = "left-button"><input type="button" name="submit" id="submit" value="Log In" onclick="logIn()"</td>
+                <td class = "right-button"><input type = "button" name = "reset" id = "color" value = "Reset" /></td>
+                <td><input type="button" name = "new user" id = "new user" value="New User"  onclick="userSignup()"/></td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</fieldset>
+</div>
+<!-- end login form -->
+    
+
+
+</body>
+</html>
